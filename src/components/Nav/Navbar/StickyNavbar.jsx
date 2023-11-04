@@ -7,7 +7,8 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import Logo from "../Logo/Logo";
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
+import Home from "../../../Pages/Home/Home";
 
 const StickyNavbar = () => {
   const [openNav, setOpenNav] = React.useState(false);
@@ -24,45 +25,65 @@ const StickyNavbar = () => {
       <Typography
         as="li"
         variant="small"
-        color="blue-gray"
-        className="p-1 font-normal text-base">
-        <NavLink to="/" className="flex items-center">
+        color=""
+        className="p-1 text-[#1A2E35] font-medium">
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? "slide-underline active" : "slide-underline"
+          }>
           Home
         </NavLink>
       </Typography>
       <Typography
         as="li"
         variant="small"
-        color="blue-gray"
-        className="p-1 font-normal text-base">
-        <NavLink to="/availableFoods" className="flex items-center">
+        color=""
+        className="p-1 text-[#1A2E35] font-medium">
+        <NavLink
+          to="/availableFoods"
+          className={({ isActive }) =>
+            isActive ? "slide-underline active" : "slide-underline"
+          }>
           Available Foods
         </NavLink>
       </Typography>
       <Typography
         as="li"
         variant="small"
-        color="blue-gray"
-        className="p-1 font-normal text-base">
-        <NavLink to="/addFood" className="flex items-center">
+        color=""
+        className="p-1 text-[#1A2E35] font-medium">
+        <NavLink
+          to="/addFood"
+          className={({ isActive }) =>
+            isActive ? "slide-underline active" : "slide-underline"
+          }>
           Add Food
         </NavLink>
       </Typography>
       <Typography
         as="li"
         variant="small"
-        color="blue-gray"
-        className="p-1 font-normal text-base">
-        <NavLink to="/manageMyFoods" className="flex items-center">
+        color=""
+        className="p-1 text-[#1A2E35] font-medium">
+        <NavLink
+          to="/manageMyFoods"
+          className={({ isActive }) =>
+            isActive ? "slide-underline active" : "slide-underline"
+          }>
           Manage My Foods
         </NavLink>
       </Typography>
       <Typography
         as="li"
         variant="small"
-        color="blue-gray"
-        className="p-1 font-normal text-base">
-        <NavLink to="/myFoodRequest" className="flex items-center">
+        color=""
+        className="p-1 text-[#1A2E35] font-medium">
+        <NavLink
+          to="/myFoodRequest"
+          className={({ isActive }) =>
+            isActive ? "slide-underline active" : "slide-underline"
+          }>
           My Food Request
         </NavLink>
       </Typography>
@@ -70,9 +91,9 @@ const StickyNavbar = () => {
   );
 
   return (
-    <div className="-m-2 max-h-[768px]">
+    <div className="-my-2 max-h-[768px]">
       <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-4 lg:px-8">
-        <div className="flex items-center justify-between text-blue-gray-900">
+        <div className="flex items-center justify-between">
           <Typography as="a" href="/">
             <Logo></Logo>
           </Typography>
@@ -81,7 +102,7 @@ const StickyNavbar = () => {
             <div className="flex items-center gap-x-1">
               <Button
                 // variant="gradient"
-                size="sm"
+                size="s"
                 className="hidden lg:inline-block bg-green-600">
                 <span>Sign in</span>
               </Button>
@@ -125,12 +146,19 @@ const StickyNavbar = () => {
         <MobileNav open={openNav}>
           {navList}
           <div className="flex items-center gap-x-1">
-            <Button fullWidth variant="gradient" size="sm" className="">
+            <Button
+              fullWidth
+              variant=""
+              size="sm"
+              className="bg-green-600 text-base">
               <span>Sign in</span>
             </Button>
           </div>
         </MobileNav>
       </Navbar>
+      <div className="mt-20">
+        <Outlet></Outlet>
+      </div>
     </div>
   );
 };

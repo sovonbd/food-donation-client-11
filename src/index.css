@@ -7,3 +7,27 @@
 body {
   font-family: "Roboto", sans-serif;
 }
+.slide-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.slide-underline::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2.5px;
+  bottom: -6px;
+  left: 0;
+  background-color: #4ca048b7;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.slide-underline.active::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* background-color: #4ca048b7; */

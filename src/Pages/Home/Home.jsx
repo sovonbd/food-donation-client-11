@@ -1,8 +1,7 @@
-
 const Home = () => {
   return (
     <div>
-      This is home
+      <img src="https://i.imgur.com/42RUMss.png" className="w-[90%]" alt="" />
     </div>
   );
 };

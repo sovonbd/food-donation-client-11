@@ -5,7 +5,7 @@ const MainLayout = () => {
   return (
     <div>
       <StickyNavbar></StickyNavbar>
-      <Outlet></Outlet>
+      {/* <Outlet></Outlet> */}
     </div>
   );
 };

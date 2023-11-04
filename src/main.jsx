@@ -13,3 +13,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </ThemeProvider>
   </React.StrictMode>
 );
+
+
+// text color - #1A2E35
+// bg green - #4ca048b7
