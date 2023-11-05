@@ -1,16 +1,38 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Navbar,
   MobileNav,
   Typography,
   Button,
+  Menu,
+  MenuHandler,
+  MenuList,
+  MenuItem,
+  Avatar,
+  Card,
   IconButton,
 } from "@material-tailwind/react";
+import {
+  CubeTransparentIcon,
+  UserCircleIcon,
+  CodeBracketSquareIcon,
+  Square3Stack3DIcon,
+  ChevronDownIcon,
+  Cog6ToothIcon,
+  InboxArrowDownIcon,
+  LifebuoyIcon,
+  PowerIcon,
+  RocketLaunchIcon,
+  Bars2Icon,
+} from "@heroicons/react/24/solid";
+
 import Logo from "../Logo/Logo";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import Footer from "../../Footer/Footer";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const StickyNavbar = () => {
+  const { user, logOut } = useContext(AuthContext);
   const [openNav, setOpenNav] = React.useState(false);
 
   React.useEffect(() => {
@@ -90,6 +112,34 @@ const StickyNavbar = () => {
     </ul>
   );
 
+  const profileMenuItems = [
+    {
+      label: `${user?.displayName ? user?.displayName : user?.email}`,
+      icon: UserCircleIcon,
+    },
+    // {
+    //   label: "Edit Profile",
+    //   icon: Cog6ToothIcon,
+    // },
+    // {
+    //   label: "Inbox",
+    //   icon: InboxArrowDownIcon,
+    // },
+    // {
+    //   label: "Help",
+    //   icon: LifebuoyIcon,
+    // },
+    {
+      label: <div onClick={logOut}>Sign Out</div>,
+      icon: PowerIcon,
+    },
+  ];
+
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const closeMenu = () => setIsMenuOpen(false);
+  // function ProfileMenu() {
+
   return (
     <div className="-my-2 max-h-[768px]">
       <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-4 lg:px-8">
@@ -100,14 +150,75 @@ const StickyNavbar = () => {
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
             <div className="flex items-center gap-x-1">
-              <Link to="/login">
-                <Button
-                  // variant="gradient"
-                  size="s"
-                  className="hidden lg:inline-block bg-green-600">
-                  <span>Sign in</span>
-                </Button>
-              </Link>
+              {user ? (
+                <Menu
+                  open={isMenuOpen}
+                  handler={setIsMenuOpen}
+                  placement="bottom-end">
+                  <MenuHandler>
+                    <Button
+                      variant="text"
+                      color="blue-gray"
+                      className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto">
+                      <Avatar
+                        variant="circular"
+                        size="sm"
+                        alt="tania andrew"
+                        className="border border-gray-900 p-0.5"
+                        src={
+                          !user.photoURL === "null"
+                            ? user.photoURL
+                            : "https://lh3.googleusercontent.com/a/ACg8ocJvDHisVPydZIb8y6TGCfYfOlh0x8Vy5eB72O6EOOgy8YI=s96-c"
+                        }
+                      />
+                      <ChevronDownIcon
+                        strokeWidth={2.5}
+                        className={`h-3 w-3 transition-transform ${
+                          isMenuOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </Button>
+                  </MenuHandler>
+                  <MenuList className="p-1">
+                    {profileMenuItems.map(({ label, icon }, key) => {
+                      const isLastItem = key === profileMenuItems.length - 1;
+                      return (
+                        <MenuItem
+                          key={label}
+                          onClick={closeMenu}
+                          className={`flex items-center gap-2 rounded ${
+                            isLastItem
+                              ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
+                              : ""
+                          }`}>
+                          {React.createElement(icon, {
+                            className: `h-4 w-4 ${
+                              isLastItem ? "text-red-500" : ""
+                            }`,
+                            strokeWidth: 2,
+                          })}
+                          <Typography
+                            as="span"
+                            variant="small"
+                            className="font-normal"
+                            color={isLastItem ? "red" : "inherit"}>
+                            {label}
+                          </Typography>
+                        </MenuItem>
+                      );
+                    })}
+                  </MenuList>
+                </Menu>
+              ) : (
+                <Link to="/login">
+                  <Button
+                    // variant="gradient"
+                    size="s"
+                    className="hidden lg:inline-block bg-green-600">
+                    <span>Sign in</span>
+                  </Button>
+                </Link>
+              )}
             </div>
             <IconButton
               variant="text"
@@ -147,17 +258,21 @@ const StickyNavbar = () => {
         </div>
         <MobileNav open={openNav}>
           {navList}
-          <div className="flex items-center gap-x-1">
-            <Link to="/login">
-              <Button
-                fullWidth
-                variant=""
-                size="sm"
-                className="bg-green-600 text-base">
-                <span>Sign in</span>
-              </Button>
-            </Link>
-          </div>
+          {user ? (
+            ""
+          ) : (
+            <div className="flex items-center gap-x-1 w-full">
+              <Link to="/login">
+                <Button
+                  fullWidth
+                  variant=""
+                  size="sm"
+                  className="bg-green-600 text-base">
+                  <span>Sign in</span>
+                </Button>
+              </Link>
+            </div>
+          )}
         </MobileNav>
       </Navbar>
       <div className="mt-2">
