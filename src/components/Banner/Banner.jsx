@@ -1,3 +1,5 @@
+import { Button } from "@material-tailwind/react";
+
 const Banner = () => {
   return (
     <div
@@ -35,9 +37,12 @@ const Banner = () => {
           data-aos="flip-left"
           data-aos-duration="1000"
           data-aos-easing="ease-in-cubic">
-          <button className="bg-green-500 px-6 py-1 lg:py-2 text-white rounded-md font-medium lg:font-semibold">
-            Get Started
-          </button>
+          <Button
+            variant=""
+            size="sm"
+            className="bg-green-700 px-6 py-1 lg:py-3 text-white rounded-md font-medium lg:font-semibold">
+            <span>Get Started</span>
+          </Button>
         </div>
       </div>
     </div>

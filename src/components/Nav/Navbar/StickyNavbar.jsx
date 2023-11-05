@@ -8,6 +8,7 @@ import {
 } from "@material-tailwind/react";
 import Logo from "../Logo/Logo";
 import { NavLink, Outlet } from "react-router-dom";
+import Footer from "../../Footer/Footer";
 
 const StickyNavbar = () => {
   const [openNav, setOpenNav] = React.useState(false);
@@ -157,6 +158,7 @@ const StickyNavbar = () => {
       </Navbar>
       <div className="mt-2">
         <Outlet></Outlet>
+        <Footer></Footer>
       </div>
     </div>
   );
