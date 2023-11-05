@@ -30,6 +30,7 @@ import Logo from "../Logo/Logo";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import Footer from "../../Footer/Footer";
 import { AuthContext } from "../../../provider/AuthProvider";
+import { FaRegUserCircle } from "react-icons/fa";
 
 const StickyNavbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -163,14 +164,15 @@ const StickyNavbar = () => {
                       <Avatar
                         variant="circular"
                         size="sm"
-                        alt="tania andrew"
+                        alt=""
                         className="border border-gray-900 p-0.5"
                         src={
-                          !user.photoURL === "null"
+                          user.photoURL !== "null"
                             ? user.photoURL
-                            : "https://lh3.googleusercontent.com/a/ACg8ocJvDHisVPydZIb8y6TGCfYfOlh0x8Vy5eB72O6EOOgy8YI=s96-c"
+                            : "https://i.imgur.com/rzbB2Jt.png"
                         }
                       />
+
                       <ChevronDownIcon
                         strokeWidth={2.5}
                         className={`h-3 w-3 transition-transform ${
