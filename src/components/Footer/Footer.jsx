@@ -11,7 +11,7 @@ import Logo from "../Nav/Logo/Logo";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#1A2E35] p-8">
+    <footer className="w-full bg-[#1A2E35] p-8 mt-20">
       <div className="flex flex-col md:flex-row flex-wrap md:items-center justify-around w-4/5 lg:w-2/3 mx-auto gap-y-10 lg:gap-y-6 gap-x-12 text-white text-center md:justify-between">
         <Link to="/" className="text-left">
           <Logo></Logo>

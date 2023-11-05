@@ -7,7 +7,7 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import Logo from "../Logo/Logo";
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import Footer from "../../Footer/Footer";
 
 const StickyNavbar = () => {
@@ -100,12 +100,14 @@ const StickyNavbar = () => {
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
             <div className="flex items-center gap-x-1">
-              <Button
-                // variant="gradient"
-                size="s"
-                className="hidden lg:inline-block bg-green-600">
-                <span>Sign in</span>
-              </Button>
+              <Link to="/login">
+                <Button
+                  // variant="gradient"
+                  size="s"
+                  className="hidden lg:inline-block bg-green-600">
+                  <span>Sign in</span>
+                </Button>
+              </Link>
             </div>
             <IconButton
               variant="text"
@@ -146,13 +148,15 @@ const StickyNavbar = () => {
         <MobileNav open={openNav}>
           {navList}
           <div className="flex items-center gap-x-1">
-            <Button
-              fullWidth
-              variant=""
-              size="sm"
-              className="bg-green-600 text-base">
-              <span>Sign in</span>
-            </Button>
+            <Link to="/login">
+              <Button
+                fullWidth
+                variant=""
+                size="sm"
+                className="bg-green-600 text-base">
+                <span>Sign in</span>
+              </Button>
+            </Link>
           </div>
         </MobileNav>
       </Navbar>

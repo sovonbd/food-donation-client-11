@@ -7,13 +7,16 @@ import Routes from "./Routes/Routes";
 import { ThemeProvider } from "@material-tailwind/react";
 import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
+import AuthProvider from "./provider/AuthProvider";
 // ..
 AOS.init();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider>
-      <RouterProvider router={Routes}></RouterProvider>
+      <AuthProvider>
+        <RouterProvider router={Routes}></RouterProvider>
+      </AuthProvider>
     </ThemeProvider>
   </React.StrictMode>
 );
