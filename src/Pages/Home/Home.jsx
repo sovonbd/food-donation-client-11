@@ -1,7 +1,9 @@
+import Banner from "../../components/Banner/Banner";
+
 const Home = () => {
   return (
     <div>
-      <img src="https://i.imgur.com/42RUMss.png" className="w-[90%]" alt="" />
+      <Banner></Banner>
     </div>
   );
 };

@@ -8,7 +8,6 @@ import {
 } from "@material-tailwind/react";
 import Logo from "../Logo/Logo";
 import { NavLink, Outlet } from "react-router-dom";
-import Home from "../../../Pages/Home/Home";
 
 const StickyNavbar = () => {
   const [openNav, setOpenNav] = React.useState(false);
@@ -118,7 +117,7 @@ const StickyNavbar = () => {
                   fill="none"
                   className="h-6 w-6"
                   viewBox="0 0 24 24"
-                  stroke="currentColor"
+                  stroke="#1A2E35"
                   strokeWidth={2}>
                   <path
                     strokeLinecap="round"
@@ -131,7 +130,7 @@ const StickyNavbar = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
                   fill="none"
-                  stroke="currentColor"
+                  stroke="#1A2E35"
                   strokeWidth={2}>
                   <path
                     strokeLinecap="round"
@@ -156,7 +155,7 @@ const StickyNavbar = () => {
           </div>
         </MobileNav>
       </Navbar>
-      <div className="mt-20">
+      <div className="mt-2">
         <Outlet></Outlet>
       </div>
     </div>
