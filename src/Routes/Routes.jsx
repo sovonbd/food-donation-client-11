@@ -5,6 +5,10 @@ import AvailableFoods from "../Pages/AvailableFoods/AvailableFoods";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import AddFood from "../Pages/AddFood/AddFood";
+import ManageMyFoods from "../Pages/ManageMyFoods/ManageMyFoods";
+import RequestFood from "../Pages/RequestFood/RequestFood";
+import PrivateRoute from "./PrivateRoute";
 
 const Routes = createBrowserRouter([
   {
@@ -19,6 +23,30 @@ const Routes = createBrowserRouter([
       {
         path: "/availableFoods",
         element: <AvailableFoods></AvailableFoods>,
+      },
+      {
+        path: "/addFood",
+        element: (
+          <PrivateRoute>
+            <AddFood></AddFood>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/manageMyFoods",
+        element: (
+          <PrivateRoute>
+            <ManageMyFoods></ManageMyFoods>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/requestFood",
+        element: (
+          <PrivateRoute>
+            <RequestFood></RequestFood>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",

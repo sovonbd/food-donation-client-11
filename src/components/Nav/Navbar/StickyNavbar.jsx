@@ -103,7 +103,7 @@ const StickyNavbar = () => {
         color=""
         className="p-1 text-[#1A2E35] font-medium">
         <NavLink
-          to="/myFoodRequest"
+          to="/requestFood"
           className={({ isActive }) =>
             isActive ? "slide-underline active" : "slide-underline"
           }>
