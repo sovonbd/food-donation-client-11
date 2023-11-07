@@ -29,6 +29,7 @@ const AddFood = () => {
       notes,
       userDisplayName: user?.displayName,
       userPhotoURL: user?.photoURL,
+      userEmail: user?.email,
     };
     console.log(item);
 
