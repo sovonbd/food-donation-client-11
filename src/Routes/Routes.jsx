@@ -25,6 +25,10 @@ const Routes = createBrowserRouter([
         element: <AvailableFoods></AvailableFoods>,
       },
       {
+        path: "/availableFoods/:id",
+        element: <AvailableFoods></AvailableFoods>,
+      },
+      {
         path: "/addFood",
         element: (
           <PrivateRoute>

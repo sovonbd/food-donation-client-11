@@ -41,38 +41,48 @@ const AddFood = () => {
   return (
     <div className="">
       <div
-        className="h-[400px] bg-no-repeat bg-bottom bg-cover"
+        className="h-[200px] lg:h-[400px] bg-no-repeat lg:bg-bottom bg-cover"
         style={{
           backgroundImage: "url(https://i.imgur.com/RUhRhir.jpg)",
         }}></div>
-      <h3 className="text-5xl text-center py-10 font-bold">Add Food</h3>
+      <h3 className="text-3xl lg:text-5xl text-center py-10 font-bold">
+        Add Food
+      </h3>
       <form
         onSubmit={handleAddProduct}
-        className="grid grid-cols-1 md:grid-cols-2 w-full gap-6 px-20">
-        <Input
-          variant="outlined"
-          label="Food Name"
-          type="text"
-          name="foodName"
-        />
-        <Input
-          variant="outlined"
-          label="Food Quantity"
-          type="number"
-          name="foodQuantity"
-        />
-        <Input
-          variant="outlined"
-          label="Expired Date"
-          type="date"
-          name="date"
-        />
-        <Input
-          variant="outlined"
-          label="Pickup Location"
-          type="text"
-          name="location"
-        />
+        className="grid grid-cols-1 md:grid-cols-2 w-full gap-3 md:gap-6 px-4 lg:px-20">
+        <div className="col-span-2 md:col-span-1">
+          <Input
+            variant="outlined"
+            label="Food Name"
+            type="text"
+            name="foodName"
+          />
+        </div>
+        <div className="col-span-2 md:col-span-1">
+          <Input
+            variant="outlined"
+            label="Food Quantity"
+            type="number"
+            name="foodQuantity"
+          />
+        </div>
+        <div className="col-span-2 md:col-span-1">
+          <Input
+            variant="outlined"
+            label="Expired Date"
+            type="date"
+            name="date"
+          />
+        </div>
+        <div className="col-span-2 md:col-span-1">
+          <Input
+            variant="outlined"
+            label="Pickup Location"
+            type="text"
+            name="location"
+          />
+        </div>
         <div className="col-span-2 w-full">
           <Input
             variant="outlined"
@@ -90,7 +100,9 @@ const AddFood = () => {
             className="col-span-2"
           />
         </div>
-        <Button type="submit" className=" bg-green-600 mx-auto col-span-2">
+        <Button
+          type="submit"
+          className="w-full md:w-auto bg-green-600 mx-auto col-span-2">
           Add Product
         </Button>
       </form>
