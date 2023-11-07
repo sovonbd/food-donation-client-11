@@ -15,7 +15,7 @@ const Banner = () => {
             data-aos="fade-up"
             data-aos-duration="1000"
             data-aos-anchor-placement="bottom-bottom">
-            <h1 className="lg:mb-3 text-lg lg:text-5xl font-extrabold w-max mx-auto uppercase">
+            <h1 className="lg:mb-3 text-lg md:text-4xl lg:text-5xl font-extrabold w-max mx-auto uppercase">
               Food for people not for profit
             </h1>
           </div>
