@@ -36,6 +36,7 @@ const Login = () => {
           icon: "success",
           title: "Success...",
           text: "Successfully logged in",
+          confirmButtonColor: "#4ca048b7",
         });
         navigate(location?.state ? location.state : "/");
       })
@@ -44,6 +45,7 @@ const Login = () => {
           icon: "error",
           title: "Oops...",
           text: `${err.message}`,
+          confirmButtonColor: "#4ca048b7",
         });
       });
   };
@@ -55,6 +57,7 @@ const Login = () => {
           icon: "success",
           title: "Success...",
           text: "Successfully logged in",
+          confirmButtonColor: "#4ca048b7",
         });
         navigate(location?.state ? location.state : "/");
       })
@@ -63,6 +66,7 @@ const Login = () => {
           icon: "error",
           title: "Oops...",
           text: `${err.message}`,
+          confirmButtonColor: "#4ca048b7",
         });
       });
   };

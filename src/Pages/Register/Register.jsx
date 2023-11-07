@@ -37,6 +37,7 @@ const Register = () => {
         icon: "error",
         title: "Oops...",
         text: "Password must be at least 6 characters",
+        confirmButtonColor: "#4ca048b7",
       });
       return;
     } else if (!/(?=.*[A-Z])/.test(password)) {
@@ -44,6 +45,7 @@ const Register = () => {
         icon: "error",
         title: "Oops...",
         text: "Password must contain at least one uppercase letter",
+        confirmButtonColor: "#4ca048b7",
       });
       return;
     } else if (!/[!@#$%^&*()_+{}[\]:;<>,.?~\\-]/.test(password)) {
@@ -51,6 +53,7 @@ const Register = () => {
         icon: "error",
         title: "Oops...",
         text: "Password must contain at least one special character",
+        confirmButtonColor: "#4ca048b7",
       });
       return;
     }
@@ -63,6 +66,7 @@ const Register = () => {
             icon: "success",
             title: "Success...",
             text: "Account created successfully",
+            confirmButtonColor: "#4ca048b7",
           });
           navigate("/");
         });
@@ -72,6 +76,7 @@ const Register = () => {
           icon: "error",
           title: "Oops...",
           text: `${err.message}`,
+          confirmButtonColor: "#4ca048b7",
         });
       });
   };

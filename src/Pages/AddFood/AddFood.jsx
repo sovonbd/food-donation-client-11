@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const AddFood = () => {
   const { user } = useContext(AuthContext);
@@ -35,6 +36,12 @@ const AddFood = () => {
 
     axios.post("http://localhost:5000/addProduct", item).then((res) => {
       console.log(res.data);
+      Swal.fire({
+        icon: "success",
+        title: "Success...",
+        text: "Successfully added the food",
+        confirmButtonColor: "#4ca048b7",
+      });
     });
     form.reset();
   };

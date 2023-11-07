@@ -16,6 +16,7 @@ import AvailableFoods from "../AvailableFoods/AvailableFoods";
 import FeaturedFoods from "../../components/FeaturedFoods/FeaturedFoods";
 import { AuthContext } from "../../provider/AuthProvider";
 import { MdToday } from "react-icons/md";
+import Swal from "sweetalert2";
 
 const ProductDetails = () => {
   const [open, setOpen] = useState(false);
@@ -48,6 +49,7 @@ const ProductDetails = () => {
     userPhotoURL,
     userEmail,
   } = product;
+  // console.log(_id);
 
   const today = new Date();
   const formattedDate = today.toISOString().substr(0, 10);
@@ -58,6 +60,7 @@ const ProductDetails = () => {
     e.preventDefault();
 
     const donation = e.target.donation.value;
+    const requestDate = e.target.requestDate.value;
     const notes = e.target.notes.value;
 
     const items = {
@@ -71,10 +74,27 @@ const ProductDetails = () => {
       userPhotoURL: product.userPhotoURL,
       userEmail: product.userEmail,
       requesterEmail: user.email,
+      requestDate,
       donation,
       notes,
     };
     console.log(items);
+
+    axios
+      .put(`http://localhost:5000/products/${_id}`, items)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.modifiedCount > 0) {
+          Swal.fire({
+            icon: "success",
+            title: "Success...",
+            text: "Successfully sent the request",
+            confirmButtonColor: "#4ca048b7",
+          });
+        }
+        setOpen(!open);
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
