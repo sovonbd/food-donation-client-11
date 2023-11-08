@@ -39,16 +39,13 @@ const ManageSingleFood = () => {
 
   const {
     data: products,
-    isLoading,
+    isLoading, 
     refetch,
   } = useQuery({
     queryKey: [id],
     queryFn: async () => {
-      return (
-        await axios
-          .get(`https://food-donation-server-puce.vercel.app/products/${id}`)
-          .then()
-      ).data;
+      return (await axios.get(`http://localhost:5000/products/${id}`).then())
+        .data;
     },
   });
   console.log(products);
@@ -65,12 +62,9 @@ const ManageSingleFood = () => {
 
   const handleButton = () => {
     axios
-      .patch(
-        `https://food-donation-server-puce.vercel.app/products/status/${id}`,
-        {
-          status: "Delivered",
-        }
-      )
+      .patch(`http://localhost:5000/products/status/${id}`, {
+        status: "Delivered",
+      })
       .then((res) => {
         console.log(res.data);
         refetch();

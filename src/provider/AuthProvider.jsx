@@ -67,25 +67,17 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
       if (currentUser) {
         axios
-          .post(
-            "https://food-donation-server-puce.vercel.app/jwt",
-            loggedUser,
-            {
-              withCredentials: true,
-            }
-          )
+          .post("http://localhost:5000/jwt", loggedUser, {
+            withCredentials: true,
+          })
           .then((res) => {
             console.log(res.data);
           });
       } else {
         axios
-          .post(
-            "https://food-donation-server-puce.vercel.app/logout",
-            loggedUser,
-            {
-              withCredentials: true,
-            }
-          )
+          .post("http://localhost:5000/logout", loggedUser, {
+            withCredentials: true,
+          })
           .then((res) => {
             console.log(res.data);
           });

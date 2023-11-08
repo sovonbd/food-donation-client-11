@@ -48,7 +48,9 @@ const AvailableFoodCard = ({ product }) => {
         </div>
         <div className="py-4 text-center">
           <Link to={`/availableFoods/${_id}`}>
-            <Button className="w-full bg-green-600">View Details</Button>
+            <Button className="w-full bg-green-600">
+              View Details}
+            </Button>
           </Link>
         </div>
       </div>

@@ -21,6 +21,7 @@ import {
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const columns = [
   {
@@ -59,7 +60,9 @@ const ManageMyFoods = () => {
   // console.log(user.email);
   const [items, setItems] = useState([]);
   const [open, setOpen] = useState(false);
-  const url = `https://food-donation-server-puce.vercel.app/products/user?userEmail=${user.email}`;
+  const axiosSecure = useAxiosSecure();
+  // const url = `http://localhost:5000/products/user?userEmail=${user.email}`;
+  const url = `/products/user?userEmail=${user.email}`;
 
   const {
     data: products,
@@ -68,13 +71,7 @@ const ManageMyFoods = () => {
   } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
-      return (
-        await axios
-          .get(url, {
-            withCredentials: true,
-          })
-          .then()
-      ).data;
+      return (await axiosSecure.get(url).then()).data;
     },
   });
   console.log(products);
@@ -127,10 +124,7 @@ const ManageMyFoods = () => {
     };
     // console.log(item);
     axios
-      .patch(
-        `https://food-donation-server-puce.vercel.app/products/${_id}`,
-        item
-      )
+      .patch(`http://localhost:5000/products/${_id}`, item)
       .then((res) => {
         console.log(res.data);
         if (res.data.modifiedCount > 0) {
@@ -157,15 +151,11 @@ const ManageMyFoods = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios
-          .delete(
-            `https://food-donation-server-puce.vercel.app/products/${_id}`
-          )
-          .then((res) => {
-            if (res.data.deleteCount > 0) {
-              Swal.fire("Deleted!", `${foodName} has been deleted.`, "success");
-            }
-          });
+        axios.delete(`http://localhost:5000/products/${_id}`).then((res) => {
+          if (res.data.deleteCount > 0) {
+            Swal.fire("Deleted!", `${foodName} has been deleted.`, "success");
+          }
+        });
         refetch();
       }
     });

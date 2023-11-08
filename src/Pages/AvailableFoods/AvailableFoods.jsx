@@ -10,11 +10,7 @@ const AvailableFoods = () => {
   const { data: products, isLoading } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
-      return (
-        await axios
-          .get("https://food-donation-server-puce.vercel.app/products")
-          .then()
-      ).data;
+      return (await axios.get("http://localhost:5000/products").then()).data;
     },
   });
 
