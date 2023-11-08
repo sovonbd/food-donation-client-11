@@ -18,6 +18,7 @@ const AddFood = () => {
     const date = form.date.value;
     const location = form.location.value;
     const foodImg = form.foodImg.value;
+    const status = form.status.value;
     const notes = form.notes.value;
 
     // console.log(foodName, foodQuantity, date, location, foodImg, notes);
@@ -31,6 +32,7 @@ const AddFood = () => {
       userDisplayName: user?.displayName,
       userPhotoURL: user?.photoURL,
       userEmail: user?.email,
+      status,
     };
     console.log(item);
 
@@ -91,12 +93,23 @@ const AddFood = () => {
             name="location"
           />
         </div>
-        <div className="col-span-2 w-full">
+        <div className="col-span-2 md:col-span-1">
           <Input
             variant="outlined"
             label="Food Image Url"
             type="text"
             name="foodImg"
+          />
+        </div>
+        <div className="col-span-2 md:col-span-1">
+          <Input
+            variant="outlined"
+            label="Status"
+            type="text"
+            name="status"
+            defaultValue={"Available"}
+            className="text-green-600"
+            disabled
           />
         </div>
         <div className="col-span-2">

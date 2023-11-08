@@ -3,6 +3,8 @@ import axios from "axios";
 import Loading from "../Loading/Loading";
 import FeaturedFoodsCard from "./FeaturedFoodsCard";
 import Marquee from "react-fast-marquee";
+import { Button } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 const FeaturedFoods = () => {
   const { data: products, isLoading } = useQuery({
@@ -18,8 +20,8 @@ const FeaturedFoods = () => {
   }
 
   const sortedProducts = products
-    .slice(0, 6)
-    .sort((a, b) => b.foodQuantity - a.foodQuantity);
+    .sort((a, b) => b.foodQuantity - a.foodQuantity)
+    .slice(0, 6);
 
   console.log(sortedProducts);
   return (
@@ -36,6 +38,11 @@ const FeaturedFoods = () => {
           ))}
         </div>
       </Marquee>
+      <Link to="/availableFoods">
+        <Button className="bg-[#1A2E35] w-72 mx-auto flex justify-center text-lg">
+          Show All
+        </Button>
+      </Link>
     </div>
   );
 };

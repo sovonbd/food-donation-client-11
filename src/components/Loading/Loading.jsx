@@ -1,11 +1,15 @@
+import Lottie from "lottie-react";
 import loadingAnimation from "../../assets/loadingAnimation.json";
 
 const Loading = () => {
   return (
     <div>
-      <div className="flex justify-center items-center h-[60vh]">
-        {/* Loading..... */}
-        <img src={loadingAnimation} className="w-32" alt="" />
+      <div className="flex justify-center items-center">
+        <Lottie
+          animationData={loadingAnimation}
+          loop={true}
+          className="w-1/2 md:w-1/4 mx-auto"
+        />
       </div>
     </div>
   );

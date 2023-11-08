@@ -14,7 +14,7 @@ const AvailableFoodCard = ({ product }) => {
     userPhotoURL,
   } = product;
   return (
-    <div className="hover:shadow-green-500/20 hover:shadow-md hover:rounded-lg">
+    <div className="hover:shadow-[#1A2E35] hover:shadow-sm hover:rounded-lg">
       <img
         src={foodImg}
         alt={foodName}
