@@ -23,7 +23,7 @@ const ProductDetails = () => {
   const { id } = useParams();
   // console.log(id);
   const { user } = useContext(AuthContext);
-  // console.log(user.email);
+  // console.log(user.displayName);
 
   const { data: product, isLoading } = useQuery({
     queryKey: ["product"],
@@ -73,7 +73,9 @@ const ProductDetails = () => {
       userDisplayName: product.userDisplayName,
       userPhotoURL: product.userPhotoURL,
       userEmail: product.userEmail,
-      requesterEmail: user.email,
+      requesterEmail: user?.email,
+      requesterPhotoURL: user?.photoURL,
+      requesterName: user?.displayName,
       requestDate,
       donation,
       notes,
@@ -189,7 +191,7 @@ const ProductDetails = () => {
                 <Input
                   variant="outlined"
                   type="text"
-                  name="location"
+                  name="name"
                   defaultValue={userDisplayName}
                   disabled
                 />

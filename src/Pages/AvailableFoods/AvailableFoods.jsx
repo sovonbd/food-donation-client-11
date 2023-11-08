@@ -26,27 +26,22 @@ const AvailableFoods = () => {
   };
 
   const handleSortByDate = () => {
-    const sortedProducts = [...products].sort((a, b) => {
-      return new Date(a.date) - new Date(b.date);
-    });
-
     setSortBy("date");
-    // setSearch("");
-    // productsQuery.setData(sortedProducts);
   };
 
   const getSortedProducts = () => {
     let filtered = products;
+
     if (search) {
       filtered = products.filter((product) =>
         product.foodName.toLowerCase().includes(search.toLowerCase())
       );
     }
 
+    filtered = filtered.filter((product) => product.status !== "Delivered");
+
     if (sortBy === "date") {
-      return filtered.sort((a, b) => {
-        return new Date(a.date) - new Date(b.date);
-      });
+      return filtered.sort((a, b) => new Date(a.date) - new Date(b.date));
     } else {
       return filtered;
     }

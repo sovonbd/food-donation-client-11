@@ -13,17 +13,17 @@ const FeaturedFoods = () => {
       return (await axios.get("http://localhost:5000/products").then()).data;
     },
   });
-  console.log(products);
 
   if (isLoading) {
     return <Loading></Loading>;
   }
 
-  const sortedProducts = products
+  const filteredProducts = products.filter((product) => product.status !== "Delivered");
+
+  const sortedProducts = filteredProducts
     .sort((a, b) => b.foodQuantity - a.foodQuantity)
     .slice(0, 6);
 
-  console.log(sortedProducts);
   return (
     <div className="mt-20 bg-gray-100 py-10">
       <h1 className="pb-10 text-4xl md:text-5xl font-bold text-center">
