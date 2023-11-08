@@ -5,7 +5,6 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
@@ -13,6 +12,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { Tooltip } from "@material-tailwind/react";
+import { Helmet } from "react-helmet-async";
 
 const columns = [
   {
@@ -46,6 +46,7 @@ const columns = [
     cell: (props) => <p>{props.getValue()}</p>,
   },
 ];
+
 const RequestFood = () => {
   const { user } = useContext(AuthContext);
   const [items, setItems] = useState([]);
@@ -66,7 +67,6 @@ const RequestFood = () => {
       ).data;
     },
   });
-  // console.log(products);
 
   const table = useReactTable({
     data: products,
@@ -75,19 +75,16 @@ const RequestFood = () => {
   });
 
   if (isLoading) {
-    return <Loading></Loading>;
+    return <Loading />;
   }
 
-  const {
-    _id,
-    foodName,
-    foodQuantity,
-    date,
-    location,
-    foodImg,
-    notes,
-    status,
-  } = items;
+  if (!products || products.length === 0) {
+    return (
+      <div className="text-center py-20 lg:h-80">
+        <p>No food requests found.</p>
+      </div>
+    );
+  }
 
   const handleDelete = (_id) => {
     const product = products.find((item) => item._id === _id);
@@ -110,10 +107,11 @@ const RequestFood = () => {
       });
   };
 
-  // console.log(foodName);
-
   return (
     <div className="py-20 md:flex justify-center overflow-scroll md:overflow-hidden text-sm md:text-base">
+      <Helmet>
+        <title>DNOSH | My Food Request</title>
+      </Helmet>
       <table className="text-center border " width={table.getTotalSize()}>
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (

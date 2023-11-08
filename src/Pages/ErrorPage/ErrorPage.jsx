@@ -1,9 +1,13 @@
 import Lottie from "lottie-react";
 import errorAnimation from "../../assets/errorAnimation.json";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 const ErrorPage = () => {
   return (
     <div>
+      <Helmet>
+        <title>DNOSH | Error</title>
+      </Helmet>
       <div className="h-screen flex flex-col justify-center items-center">
         <Lottie
           animationData={errorAnimation}

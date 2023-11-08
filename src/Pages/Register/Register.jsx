@@ -18,6 +18,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { createUser, updateUser } = useContext(AuthContext);
@@ -84,6 +85,9 @@ const Register = () => {
     <div
       data-aos="zoom-in"
       className="relative my-10 md:my-20 flex flex-col md:flex-row-reverse justify-center lg:gap-20">
+      <Helmet>
+        <title>DNOSH | Sign Up</title>
+      </Helmet>
       <Lottie
         animationData={loginAnimation}
         loop={true}

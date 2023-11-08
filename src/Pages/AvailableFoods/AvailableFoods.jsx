@@ -4,6 +4,7 @@ import Loading from "../../components/Loading/Loading";
 import AvailableFoodCard from "./AvailableFoodCard";
 import { Button, Select, Option } from "@material-tailwind/react";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const AvailableFoods = () => {
   const { data: products, isLoading } = useQuery({
@@ -49,6 +50,9 @@ const AvailableFoods = () => {
 
   return (
     <div className="pt-20">
+      <Helmet>
+        <title>DNOSH | Available Foods</title>
+      </Helmet>
       <div className="flex flex-col gap-y-4 md:flex-row md:justify-between md:items-center md:px-16 lg:px-36 mx-auto">
         <form
           onSubmit={handleSearch}

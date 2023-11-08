@@ -20,6 +20,7 @@ import {
 } from "@material-tailwind/react";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const columns = [
   {
@@ -58,6 +59,7 @@ const ManageMyFoods = () => {
   // console.log(user.email);
   const [items, setItems] = useState([]);
   const [open, setOpen] = useState(false);
+  const url = `http://localhost:5000/products/user?userEmail=${user.email}`;
 
   const {
     data: products,
@@ -68,7 +70,9 @@ const ManageMyFoods = () => {
     queryFn: async () => {
       return (
         await axios
-          .get(`http://localhost:5000/products/user?userEmail=${user.email}`)
+          .get(url, {
+            withCredentials: true,
+          })
           .then()
       ).data;
     },
@@ -162,6 +166,9 @@ const ManageMyFoods = () => {
 
   return (
     <div className="py-20 md:flex justify-center overflow-scroll md:overflow-hidden text-sm md:text-base">
+      <Helmet>
+        <title>DNOSH | Manage My Foods</title>
+      </Helmet>
       <table className="text-center border " width={table.getTotalSize()}>
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (

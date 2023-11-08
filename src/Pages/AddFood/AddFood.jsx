@@ -4,6 +4,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const AddFood = () => {
   const { user } = useContext(AuthContext);
@@ -50,6 +51,9 @@ const AddFood = () => {
 
   return (
     <div className="">
+      <Helmet>
+        <title>DNOSH | Add Food</title>
+      </Helmet>
       <div
         className="h-[200px] lg:h-[400px] bg-no-repeat lg:bg-bottom bg-cover"
         style={{
