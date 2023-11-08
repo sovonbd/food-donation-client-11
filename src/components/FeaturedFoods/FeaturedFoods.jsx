@@ -7,10 +7,14 @@ import { Button } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 
 const FeaturedFoods = () => {
-  const { data: products, isLoading } = useQuery({
+  const { data: products = [], isLoading } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
-      return (await axios.get("http://localhost:5000/products").then()).data;
+      return (
+        await axios
+          .get("https://food-donation-server-puce.vercel.app/products")
+          .then()
+      ).data;
     },
   });
 
@@ -18,7 +22,9 @@ const FeaturedFoods = () => {
     return <Loading></Loading>;
   }
 
-  const filteredProducts = products.filter((product) => product.status !== "Delivered");
+  const filteredProducts = products.filter(
+    (product) => product.status !== "Delivered"
+  );
 
   const sortedProducts = filteredProducts
     .sort((a, b) => b.foodQuantity - a.foodQuantity)

@@ -28,8 +28,11 @@ const ProductDetails = () => {
   const { data: product, isLoading } = useQuery({
     queryKey: ["product"],
     queryFn: async () => {
-      return (await axios.get(`http://localhost:5000/products/${id}`).then())
-        .data;
+      return (
+        await axios
+          .get(`https://food-donation-server-puce.vercel.app/products/${id}`)
+          .then()
+      ).data;
     },
   });
   console.log(product);
@@ -83,7 +86,10 @@ const ProductDetails = () => {
     console.log(items);
 
     axios
-      .put(`http://localhost:5000/products/${_id}`, items)
+      .put(
+        `https://food-donation-server-puce.vercel.app/products/${_id}`,
+        items
+      )
       .then((res) => {
         console.log(res.data);
         if (res.data.modifiedCount > 0) {

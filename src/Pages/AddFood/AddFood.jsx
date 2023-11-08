@@ -1,7 +1,6 @@
 import { Button, Input, Textarea } from "@material-tailwind/react";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
-import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
@@ -37,15 +36,17 @@ const AddFood = () => {
     };
     console.log(item);
 
-    axios.post("http://localhost:5000/addProduct", item).then((res) => {
-      console.log(res.data);
-      Swal.fire({
-        icon: "success",
-        title: "Success...",
-        text: "Successfully added the food",
-        confirmButtonColor: "#4ca048b7",
+    axios
+      .post("https://food-donation-server-puce.vercel.app/addProduct", item)
+      .then((res) => {
+        console.log(res.data);
+        Swal.fire({
+          icon: "success",
+          title: "Success...",
+          text: "Successfully added the food",
+          confirmButtonColor: "#4ca048b7",
+        });
       });
-    });
     form.reset();
   };
 

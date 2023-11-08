@@ -59,7 +59,7 @@ const ManageMyFoods = () => {
   // console.log(user.email);
   const [items, setItems] = useState([]);
   const [open, setOpen] = useState(false);
-  const url = `http://localhost:5000/products/user?userEmail=${user.email}`;
+  const url = `https://food-donation-server-puce.vercel.app/products/user?userEmail=${user.email}`;
 
   const {
     data: products,
@@ -127,7 +127,10 @@ const ManageMyFoods = () => {
     };
     // console.log(item);
     axios
-      .patch(`http://localhost:5000/products/${_id}`, item)
+      .patch(
+        `https://food-donation-server-puce.vercel.app/products/${_id}`,
+        item
+      )
       .then((res) => {
         console.log(res.data);
         if (res.data.modifiedCount > 0) {
@@ -154,11 +157,15 @@ const ManageMyFoods = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/products/${_id}`).then((res) => {
-          if (res.data.deleteCount > 0) {
-            Swal.fire("Deleted!", `${foodName} has been deleted.`, "success");
-          }
-        });
+        axios
+          .delete(
+            `https://food-donation-server-puce.vercel.app/products/${_id}`
+          )
+          .then((res) => {
+            if (res.data.deleteCount > 0) {
+              Swal.fire("Deleted!", `${foodName} has been deleted.`, "success");
+            }
+          });
         refetch();
       }
     });

@@ -61,7 +61,7 @@ const RequestFood = () => {
       return (
         await axios
           .get(
-            `http://localhost:5000/request/user?requesterEmail=${user.email}`
+            `https://food-donation-server-puce.vercel.app/request/user?requesterEmail=${user.email}`
           )
           .then()
       ).data;
@@ -90,9 +90,12 @@ const RequestFood = () => {
     const product = products.find((item) => item._id === _id);
     setItems(product);
     axios
-      .patch(`http://localhost:5000/products/requesterEmail/${_id}`, {
-        requesterEmail: "",
-      })
+      .patch(
+        `https://food-donation-server-puce.vercel.app/products/requesterEmail/${_id}`,
+        {
+          requesterEmail: "",
+        }
+      )
       .then((res) => {
         console.log(res.data);
         if (res.data.modifiedCount > 0) {

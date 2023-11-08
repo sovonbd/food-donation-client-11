@@ -1,5 +1,6 @@
 import { Button } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const AvailableFoodCard = ({ product }) => {
   const {
@@ -55,4 +56,7 @@ const AvailableFoodCard = ({ product }) => {
   );
 };
 
+AvailableFoodCard.propTypes = {
+  product: PropTypes.object,
+};
 export default AvailableFoodCard;

@@ -9,28 +9,18 @@ import {
   MenuList,
   MenuItem,
   Avatar,
-  Card,
   IconButton,
 } from "@material-tailwind/react";
 import {
-  CubeTransparentIcon,
   UserCircleIcon,
-  CodeBracketSquareIcon,
-  Square3Stack3DIcon,
   ChevronDownIcon,
-  Cog6ToothIcon,
-  InboxArrowDownIcon,
-  LifebuoyIcon,
   PowerIcon,
-  RocketLaunchIcon,
-  Bars2Icon,
 } from "@heroicons/react/24/solid";
 
 import Logo from "../Logo/Logo";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import Footer from "../../Footer/Footer";
 import { AuthContext } from "../../../provider/AuthProvider";
-import { FaRegUserCircle } from "react-icons/fa";
 
 const StickyNavbar = () => {
   const { user, logOut } = useContext(AuthContext);
