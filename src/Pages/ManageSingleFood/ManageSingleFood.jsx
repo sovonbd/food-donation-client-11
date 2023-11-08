@@ -7,8 +7,6 @@ import {
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
-import { Button } from "@material-tailwind/react";
-import { useState } from "react";
 
 const columns = [
   {
