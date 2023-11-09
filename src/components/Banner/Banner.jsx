@@ -1,4 +1,5 @@
 import { Button } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -38,12 +39,14 @@ const Banner = () => {
             data-aos="flip-left"
             data-aos-duration="1000"
             data-aos-easing="ease-in-cubic">
-            <Button
-              variant=""
-              size="sm"
-              className="bg-green-700 px-6 py-1 lg:py-3 text-white rounded-md font-medium lg:font-semibold">
-              <span>Get Started</span>
-            </Button>
+            <Link to="/addFood">
+              <Button
+                variant=""
+                size="sm"
+                className="bg-green-700 px-6 py-2 lg:py-3 text-white rounded-md font-medium lg:font-semibold">
+                <span>Get Started</span>
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
@@ -53,12 +56,14 @@ const Banner = () => {
           backgroundImage: "url(https://i.imgur.com/MTanWsu.png)",
         }}>
         <div className="flex flex-col md:flex-row h-full justify-center items-center md:gap-10 lg:gap-20">
-          <Button
-            data-aos="fade-down"
-            data-aos-duration="1000"
-            className="bg-gradient-to-l from-green-600 to-[#1A2E35] md:px-10 lg:py-4 rounded-full text-lg lg:text-3xl normal-case">
-            Make A Donation
-          </Button>
+          <Link to="/addFood">
+            <Button
+              data-aos="fade-down"
+              data-aos-duration="1000"
+              className="bg-gradient-to-l from-green-600 to-[#1A2E35] md:px-10 lg:py-4 rounded-full text-lg lg:text-3xl normal-case">
+              Make A Donation
+            </Button>
+          </Link>
           <div
             data-aos="fade-up"
             data-aos-duration="1000"

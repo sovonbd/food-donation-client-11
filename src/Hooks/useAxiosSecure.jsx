@@ -5,7 +5,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://food-donation-server-puce.vercel.app",
   withCredentials: true,
 });
 
@@ -18,9 +18,9 @@ const useAxiosSecure = () => {
         return res;
       },
       (error) => {
-        console.log("error interceptor", error.response);
+        // console.log("error interceptor", error.response);
         if (error.response.status === 401 || error.response.status === 403) {
-          console.log("logout the user");
+          // console.log("logout the user");
           logOut()
             .then(() => {
               navigate("/login");

@@ -34,22 +34,24 @@ const AddFood = () => {
       userEmail: user?.email,
       status,
     };
-    console.log(item);
+    // console.log(item);
 
-    axios.post("http://localhost:5000/addProduct", item).then((res) => {
-      console.log(res.data);
-      Swal.fire({
-        icon: "success",
-        title: "Success...",
-        text: "Successfully added the food",
-        confirmButtonColor: "#4ca048b7",
+    axios
+      .post("https://food-donation-server-puce.vercel.app/addProduct", item)
+      .then((res) => {
+        console.log(res.data);
+        Swal.fire({
+          icon: "success",
+          title: "Success...",
+          text: "Successfully added the food",
+          confirmButtonColor: "#4ca048b7",
+        });
       });
-    });
     form.reset();
   };
 
   return (
-    <div className="">
+    <div data-aos="zoom-in" data-aos-duration="1000" className="">
       <Helmet>
         <title>DNOSH | Add Food</title>
       </Helmet>

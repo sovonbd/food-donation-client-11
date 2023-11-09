@@ -10,7 +10,7 @@ import {
   Tooltip,
 } from "@material-tailwind/react";
 
-import { FcGoogle } from "react-icons/fc";
+// import { FcGoogle } from "react-icons/fc";
 
 import loginAnimation from "../../assets/loginAnimation.json";
 import Lottie from "lottie-react";
@@ -60,8 +60,8 @@ const Register = () => {
     }
 
     createUser(email, password)
-      .then((res) => {
-        console.log(res.user);
+      .then(() => {
+        // console.log(res.user);
         updateUser(name, photo).then(() => {
           Swal.fire({
             icon: "success",

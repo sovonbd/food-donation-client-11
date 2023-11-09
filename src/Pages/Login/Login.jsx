@@ -8,13 +8,12 @@ import {
   Checkbox,
   Button,
 } from "@material-tailwind/react";
-import React from "react";
 
 import { FcGoogle } from "react-icons/fc";
 
 import loginAnimation from "../../assets/loginAnimation.json";
 import Lottie from "lottie-react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import {  useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
@@ -52,8 +51,8 @@ const Login = () => {
   };
   const handleGoogleLogin = () => {
     signInWithGoogle()
-      .then((res) => {
-        console.log(res.user);
+      .then(() => {
+        // console.log(res.user);
         Swal.fire({
           icon: "success",
           title: "Success...",

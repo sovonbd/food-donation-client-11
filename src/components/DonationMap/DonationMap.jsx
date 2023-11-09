@@ -1,8 +1,18 @@
 import { MdOutlineCampaign, MdOutlineVolunteerActivism } from "react-icons/md";
 import { AiOutlineFundView } from "react-icons/ai";
 import { LuClover } from "react-icons/lu";
+import useMapAnimation from "../../Hooks/useMapAnimation";
 
 const DonationMap = () => {
+  const num1 = 4850;
+  const useMapAnimation1 = useMapAnimation(num1);
+  const num2 = 2850;
+  const useMapAnimation2 = useMapAnimation(num2);
+  const num3 = 850;
+  const useMapAnimation3 = useMapAnimation(num3);
+  const num4 = 350;
+  const useMapAnimation4 = useMapAnimation(num4);
+
   return (
     <div
       data-aos="zoom-in"
@@ -21,7 +31,9 @@ const DonationMap = () => {
           <div className="">
             <div className="flex items-end gap-3">
               <MdOutlineCampaign className="md:text-6xl text-green-600 text-5xl" />
-              <span className="font-bold text-xl lg:text-4xl">4850+</span>
+              <span className="font-bold text-xl lg:text-4xl">
+                {useMapAnimation1()}
+              </span>
             </div>
             <p className="lg:text-2xl font-light text-center lg:text-left">
               Campaigns
@@ -30,16 +42,22 @@ const DonationMap = () => {
           <div className="">
             <div className="flex items-end gap-3">
               <AiOutlineFundView className="lg:text-6xl text-green-600 text-5xl" />
-              <span className="font-bold text-xl lg:text-4xl">2850+</span>
+              <span className="font-bold text-xl lg:text-4xl">
+                {" "}
+                {useMapAnimation2()}
+              </span>
             </div>
             <p className="lg:text-2xl font-light text-center lg:text-left">
-              Raised Funs
+              Raised Funds
             </p>
           </div>
           <div className="">
             <div className="flex items-end gap-3">
               <LuClover className="lg:text-6xl text-green-600 text-5xl" />
-              <span className="font-bold text-xl lg:text-4xl">850+</span>
+              <span className="font-bold text-xl lg:text-4xl">
+                {" "}
+                {useMapAnimation3()}
+              </span>
             </div>
             <p className="lg:text-2xl font-light text-center lg:text-left">
               Satisfied Donner
@@ -48,7 +66,10 @@ const DonationMap = () => {
           <div className="">
             <div className="flex items-end gap-3">
               <MdOutlineVolunteerActivism className="lg:text-6xl text-green-600 text-5xl" />
-              <span className="font-bold text-xl lg:text-4xl">350+</span>
+              <span className="font-bold text-xl lg:text-4xl">
+                {" "}
+                {useMapAnimation4()}
+              </span>
             </div>
             <p className="lg:text-2xl font-light text-center lg:text-left">
               Best Volunteers

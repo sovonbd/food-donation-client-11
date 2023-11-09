@@ -12,13 +12,13 @@ import Logo from "../Nav/Logo/Logo";
 const Footer = () => {
   return (
     <footer className="w-full bg-[#1A2E35] p-8 mt-20">
-      <div className="flex flex-col md:flex-row flex-wrap md:items-center justify-around w-4/5 lg:w-2/3 mx-auto gap-y-10 lg:gap-y-6 gap-x-12 text-white text-center md:justify-between">
-        <Link to="/" className="text-left">
-          <Logo></Logo>
-          <p>Donate Nosh Inc.</p>
+      <div className="flex flex-col md:flex-row flex-wrap md:items-center w-4/5 lg:w-2/3 mx-auto gap-y-10 lg:gap-y-6 gap-x-12 text-white text-center md:justify-between">
+        <Link to="/" className="md:text-left flex flex-col items-center md:items-start">
+          <Logo className=""></Logo>
+          <p className="pt-2">Donate Nosh Inc.</p>
           <p>Doing charity since 2000</p>
         </Link>
-        <ul className="text-left gap-y-2 gap-x-8">
+        <ul className="md:text-left gap-y-2 gap-x-8">
           <h3 className="text-base pb-4">Company</h3>
           <li>
             <Typography
@@ -57,8 +57,8 @@ const Footer = () => {
             </Typography>
           </li>
         </ul>
-        <div className="flex flex-col gap-6 text-white">
-          <div className="text-left text-sm">
+        <div className="flex flex-col gap-6 items-center md:items-start text-white">
+          <div className="md:text-left text-sm">
             <h3 className="text-[17px] -mt-1 pb-5">Contact</h3>
             <div className="text-sm">
               <p>Suite 800</p>

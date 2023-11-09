@@ -61,7 +61,7 @@ const RequestFood = () => {
       return (
         await axios
           .get(
-            `http://localhost:5000/request/user?requesterEmail=${user.email}`
+            `https://food-donation-server-puce.vercel.app/request/user?requesterEmail=${user.email}`
           )
           .then()
       ).data;
@@ -80,7 +80,7 @@ const RequestFood = () => {
 
   if (!products || products.length === 0) {
     return (
-      <div className="text-center py-20 lg:h-80">
+      <div className="text-center flex items-center justify-center my-16 h-[40vh]">
         <p>No food requests found.</p>
       </div>
     );
@@ -90,11 +90,14 @@ const RequestFood = () => {
     const product = products.find((item) => item._id === _id);
     setItems(product);
     axios
-      .patch(`http://localhost:5000/products/requesterEmail/${_id}`, {
-        requesterEmail: "",
-      })
+      .patch(
+        `https://food-donation-server-puce.vercel.app/products/requesterEmail/${_id}`,
+        {
+          requesterEmail: "",
+        }
+      )
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.modifiedCount > 0) {
           Swal.fire({
             icon: "success",
@@ -108,7 +111,10 @@ const RequestFood = () => {
   };
 
   return (
-    <div className="py-20 md:flex justify-center overflow-scroll md:overflow-hidden text-sm md:text-base">
+    <div
+      data-aos="zoom-in"
+      data-aos-duration="1000"
+      className="py-20 md:flex justify-center overflow-scroll md:overflow-hidden text-sm md:text-base">
       <Helmet>
         <title>DNOSH | My Food Request</title>
       </Helmet>

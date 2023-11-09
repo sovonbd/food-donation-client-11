@@ -61,7 +61,7 @@ const ManageMyFoods = () => {
   const [items, setItems] = useState([]);
   const [open, setOpen] = useState(false);
   const axiosSecure = useAxiosSecure();
-  // const url = `http://localhost:5000/products/user?userEmail=${user.email}`;
+  // const url = `https://food-donation-server-puce.vercel.app/products/user?userEmail=${user.email}`;
   const url = `/products/user?userEmail=${user.email}`;
 
   const {
@@ -74,7 +74,7 @@ const ManageMyFoods = () => {
       return (await axiosSecure.get(url).then()).data;
     },
   });
-  console.log(products);
+  // console.log(products);
 
   const table = useReactTable({
     data: products,
@@ -124,9 +124,12 @@ const ManageMyFoods = () => {
     };
     // console.log(item);
     axios
-      .patch(`http://localhost:5000/products/${_id}`, item)
+      .patch(
+        `https://food-donation-server-puce.vercel.app/products/${_id}`,
+        item
+      )
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.modifiedCount > 0) {
           Swal.fire({
             icon: "success",
@@ -151,18 +154,33 @@ const ManageMyFoods = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/products/${_id}`).then((res) => {
-          if (res.data.deleteCount > 0) {
-            Swal.fire("Deleted!", `${foodName} has been deleted.`, "success");
-          }
-        });
+        axios
+          .delete(
+            `https://food-donation-server-puce.vercel.app/products/${_id}`
+          )
+          .then((res) => {
+            if (res.data.deleteCount > 0) {
+              Swal.fire("Deleted!", `${foodName} has been deleted.`, "success");
+            }
+          });
         refetch();
       }
     });
   };
 
+  if (!products || products.length === 0) {
+    return (
+      <div className="text-center flex items-center justify-center my-16 h-[40vh]">
+        <p>No donation found.</p>
+      </div>
+    );
+  }
+
   return (
-    <div className="py-20 md:flex justify-center overflow-scroll md:overflow-hidden text-sm md:text-base">
+    <div
+      data-aos="zoom-in"
+      data-aos-duration="1000"
+      className="py-20 md:flex justify-center overflow-scroll md:overflow-hidden text-sm md:text-base">
       <Helmet>
         <title>DNOSH | Manage My Foods</title>
       </Helmet>

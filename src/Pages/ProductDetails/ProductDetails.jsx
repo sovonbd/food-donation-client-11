@@ -3,19 +3,9 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useContext, useState } from "react";
 import Loading from "../../components/Loading/Loading";
-import {
-  Button,
-  Dialog,
-  DialogHeader,
-  DialogBody,
-  DialogFooter,
-  Input,
-  Textarea,
-} from "@material-tailwind/react";
-import AvailableFoods from "../AvailableFoods/AvailableFoods";
+import { Button, Dialog, Input, Textarea } from "@material-tailwind/react";
 import FeaturedFoods from "../../components/FeaturedFoods/FeaturedFoods";
 import { AuthContext } from "../../provider/AuthProvider";
-import { MdToday } from "react-icons/md";
 import Swal from "sweetalert2";
 
 const ProductDetails = () => {
@@ -28,11 +18,14 @@ const ProductDetails = () => {
   const { data: product, isLoading } = useQuery({
     queryKey: ["product"],
     queryFn: async () => {
-      return (await axios.get(`http://localhost:5000/products/${id}`).then())
-        .data;
+      return (
+        await axios
+          .get(`https://food-donation-server-puce.vercel.app/products/${id}`)
+          .then()
+      ).data;
     },
   });
-  console.log(product);
+  // console.log(product);
   if (isLoading) {
     return <Loading></Loading>;
   }
@@ -80,10 +73,13 @@ const ProductDetails = () => {
       donation,
       notes,
     };
-    console.log(items);
+    // console.log(items);
 
     axios
-      .put(`http://localhost:5000/products/${_id}`, items)
+      .put(
+        `https://food-donation-server-puce.vercel.app/products/${_id}`,
+        items
+      )
       .then((res) => {
         console.log(res.data);
         if (res.data.modifiedCount > 0) {

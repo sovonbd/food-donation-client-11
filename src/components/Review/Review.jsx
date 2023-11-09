@@ -41,11 +41,11 @@ const Review = () => {
           }}
           className="h-max py-4">
           <SwiperSlide className="">
-            <p className="text-justify text-sm">
-              The food donation was a generous and much-needed contribution to
-              our community. It provided essential sustenance to those in need
-              and helped alleviate hunger. The donated items were of good
-              quality and greatly appreciated by recipients.
+            <p className="text-justify text-sm ">
+              &quot;The food donation was a generous and much-needed
+              contribution to our community. It provided essential sustenance to
+              those in need and helped alleviate hunger. The donated items were
+              of good quality and greatly appreciated by recipients.&quot;
             </p>
             <div className="flex gap-2 justify-start py-4">
               <img
@@ -59,11 +59,11 @@ const Review = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide className="">
-            <p className="text-justify text-sm">
-              The food donation was a generous and much-needed contribution to
-              our community. It provided essential sustenance to those in need
-              and helped alleviate hunger. The donated items were of good
-              quality and greatly appreciated by recipients.
+            <p className="text-justify text-sm ">
+              &quot;The food donation was a generous and much-needed
+              contribution to our community. It provided essential sustenance to
+              those in need and helped alleviate hunger. The donated items were
+              of good quality and greatly appreciated by recipients.&quot;
             </p>
             <div className="flex gap-2 justify-start py-4">
               <img
@@ -77,11 +77,11 @@ const Review = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide className="">
-            <p className="text-justify  text-sm">
-              The food donation was a generous and much-needed contribution to
-              our community. It provided essential sustenance to those in need
-              and helped alleviate hunger. The donated items were of good
-              quality and greatly appreciated by recipients.
+            <p className="text-justify  text-sm ">
+              &quot;The food donation was a generous and much-needed
+              contribution to our community. It provided essential sustenance to
+              those in need and helped alleviate hunger. The donated items were
+              of good quality and greatly appreciated by recipients.&quot;
             </p>
             <div className="flex gap-2 justify-start py-4">
               <img
@@ -95,11 +95,11 @@ const Review = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide className="">
-            <p className="text-justify  text-sm">
-              The food donation was a generous and much-needed contribution to
-              our community. It provided essential sustenance to those in need
-              and helped alleviate hunger. The donated items were of good
-              quality and greatly appreciated by recipients.
+            <p className="text-justify  text-sm ">
+              &quot;The food donation was a generous and much-needed
+              contribution to our community. It provided essential sustenance to
+              those in need and helped alleviate hunger. The donated items were
+              of good quality and greatly appreciated by recipients.&quot;
             </p>
             <div className="flex gap-2 justify-start py-4">
               <img
@@ -113,11 +113,11 @@ const Review = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide className="">
-            <p className="text-justify  text-sm">
-              The food donation was a generous and much-needed contribution to
-              our community. It provided essential sustenance to those in need
-              and helped alleviate hunger. The donated items were of good
-              quality and greatly appreciated by recipients.
+            <p className="text-justify  text-sm ">
+              &quot;The food donation was a generous and much-needed
+              contribution to our community. It provided essential sustenance to
+              those in need and helped alleviate hunger. The donated items were
+              of good quality and greatly appreciated by recipients.&quot;
             </p>
             <div className="flex gap-2 justify-start py-4">
               <img
