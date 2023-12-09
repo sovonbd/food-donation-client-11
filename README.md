@@ -68,7 +68,6 @@ To get started with the Donation Nosh project:
 
 This project was made possible by the following contributors:
 - [@sovonbd](https://github.com/sovonbd>)
-- [Add more contributors if applicable]
 
 If you'd like to contribute to this project, feel free to fork the repository and submit a pull request.
 
