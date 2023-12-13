@@ -5,6 +5,8 @@ import FeaturedFoodsCard from "./FeaturedFoodsCard";
 import Marquee from "react-fast-marquee";
 import { Button } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
+import { SunnyMorning } from "moving-letters";
+import React from "react";
 
 const FeaturedFoods = () => {
   const { data: products = [], isLoading } = useQuery({
